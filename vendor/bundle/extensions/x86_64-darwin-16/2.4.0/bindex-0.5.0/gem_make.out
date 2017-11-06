@@ -1,0 +1,15 @@
+current directory: /Users/user/github/railbook/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20171105-13410-1s5uqx4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/user/github/railbook/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/user/github/railbook/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/user/github/railbook/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20171105-13410-11p5gw1/bindex
