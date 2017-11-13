@@ -1,4 +1,23 @@
 class CtrlController < ApplicationController
+
+  #index アクションに対してbeforeフィルタauthを登録
+  before_action :auth, only: :index
+  # # before/afterフィルターの登録
+  # before_action :start_logger
+  # after_action :end_logger
+
+  # around_action :around_logger
+
+  def index
+    sleep 3
+    render plain: 'indexアクションが実行されました。'
+  end
+
+  def index2
+    sleep 10
+    render plain: 'index2アクションが実行されました。'
+  end
+
   def para
     render plain: 'idパラメータ：' + params[:id]
   end
@@ -51,4 +70,26 @@ class CtrlController < ApplicationController
     @books = Book.all
     render json: @books
   end
+
+  private
+    def start_logger
+      logger.debug('[Start]' + Time.now.to_s)
+    end
+    def end_logger
+      logger.debug('[Finish]' + Time.now.to_s)
+    end
+    def around_logger
+      logger.debug('[Start]' + Time.now.to_s)
+      yield # アクションを実行
+      logger.debug('[Finish]' + Time.now.to_s)
+    end
+    def auth
+      # 認証に利用するユーザー名、パスワード
+      name = 'yyamada'
+      passwd = ''
+      # 基本認証を実行
+      authenticate_or_request_with_http_basic('Railsbook') do |n, p|
+        n === name && Digest::SHA1.hexdigest(p) == passwd
+      end
+    end
 end

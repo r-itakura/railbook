@@ -24,4 +24,13 @@ Rails.application.routes.draw do
   get 'ctrl/upload_process'
   get 'ctrl/log'
   get 'ctrl/get_json'
+  get 'ctrl/index'
+  get 'ctrl/index2'
+
+  get 'login/index'
+  get 'login/auth'
+  post 'login/auth'
+
+  get 'ajax/index'
+  get 'ajax/upanel'
 end
